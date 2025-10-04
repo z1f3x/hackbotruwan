@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Game Predictor - Deposit</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .console-box {
+      font-family: monospace;
+      background-color: #1a1a1a;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 20px #00ff88;
+      color: #00ff88;
+      height: 250px;
+      overflow-y: auto;
+    }
+    .loading-screen {
+      font-family: monospace;
+      background: #000;
+      color: #00ff88;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
+      z-index: 50;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+    .hidden-screen {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+  <div id="loading" class="loading-screen">
+    <p>පූරණය වෙමින් පවතියි... ඔබගේ අත්දැකීම සකස් කරමින් සිටින අතර කරුණාකර ඉවසන්න.</p>
+  </div>
+
+  <div id="mainContent" class="hidden-screen">
+    <header class="w-full bg-gray-800 p-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold text-green-400">1xBet AI Predictor</h1>
+      <nav class="space-x-4">
+        <a href="#how" class="hover:text-green-400">How It Works</a>
+        <a href="#games" class="hover:text-green-400">Games</a>
+        <a href="#start" class="hover:text-green-400">Get Started</a>
+      </nav>
+    </header>
+
+    <section class="min-h-screen flex flex-col items-center justify-center px-4 text-center">
+      <h2 class="text-3xl md:text-5xl font-bold mb-6">AI අනාවැකි සහිතව සැබෑ මුදල් උපයාගන්න</h2>
+      <p class="max-w-xl mb-8 text-gray-300">අවිඇටර්, මයින්ස්, සහ පෙනල්ටි වැනි ක්‍රීඩා ජයගැනීමට දහස් ගණනක් ශ්‍රී ලාංකිකයින් අපගේ AI භාවිතා කරති. 98% ක සංඥා නිරවද්‍යතාවය, සජීවී අනාවැකි, සහ ඉතා වේගවත් මුදල් ආපසු ගැනීම්..</p>
+
+      <input id="userId" type="text" placeholder="ඔබේ 1xBet ගිණුම් හැඳුනුම්පත ඇතුළත් කරන්න" class="bg-gray-700 text-white p-3 rounded-md mb-4" />
+      <button id="connectButton" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-xl text-lg transition">Connect Account</button>
+
+      <div id="connectionSuccess" class="hidden text-green-400 font-bold mt-6">
+        <p>Account ID: <span id="accountIdDisplay">1254567890</span> connected successfully!</p>
+        <p>Status: සක්‍රීය | 100% නිවැරදි බව | ඇල්ගොරිතම් විශ්ලේෂණය කරන ලදී</p>
+        <button id="getSignalButton" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-xl text-lg transition mt-4">Get Signal</button>
+      </div>
+
+      <div id="errorBox" class="hidden bg-red-600 p-6 rounded-xl max-w-md mx-auto mt-6">
+        <h2 class="text-xl font-bold mb-2">⚠️ තැන්පතු හමු නොවීය</h2>
+        <p class="mb-4">It looks like your balance is empty. Please deposit 1500 LKR to unlock signals and start winning.</p>
+        <a href="https://reffpa.com/L?tag=d_4347029m_32273c_&site=4347029&ad=32273&r=registration" target="_blank" id="depositButton" class="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded-lg transition">
+          Deposit Now on 1xBet
+        </a>
+      </div>
+    </section>
+
+    <section class="bg-gray-800 py-12 px-6 text-center">
+      <h3 class="text-2xl font-bold text-green-400 mb-6">Top Winners Today (LKR)</h3>
+      <div class="grid md:grid-cols-2 gap-4 text-left max-w-4xl mx-auto text-sm text-green-300">
+        <p>👤 User ID: 1218473422 – LKR 83532</p>
+        <p>👤 User ID: 9912384741 – LKR 85300</p>
+        <p>👤 User ID: 3099234822 – LKR 88471</p>
+        <p>👤 User ID: 1187339121 – LKR 77390</p>
+        <p>👤 User ID: 4412900113 – LKR 86660</p>
+        <p>👤 User ID: 8283721091 – LKR 78900</p>
+        <p>👤 User ID: 7751937742 – LKR 92340</p>
+        <p>👤 User ID: 5554921811 – LKR 98700</p>
+        <p>👤 User ID: 1983238742 – LKR 80530</p>
+        <p>👤 User ID: 3377749301 – LKR 81154</p>
+      </div>
+    </section>
+
+    <section id="games" class="bg-gray-800 py-12 px-6 text-center">
+      <h3 class="text-2xl font-bold text-green-400 mb-6">Compatible Games</h3>
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="text-xl font-bold mb-2">🎮 Aviator</h4>
+          <p class="text-gray-300">Predict when to cash out before the plane flies away. Our AI detects patterns in real time.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="bg-gray-900 py-12 px-6 text-center">
+      <h3 class="text-2xl font-bold text-green-400 mb-6">How It Works</h3>
+      <div class="max-w-3xl mx-auto space-y-4 text-gray-300">
+        <p>📡 අපගේ AI සෑම විටම ජීවිතාන්තර දත්ත සහ ඉතිහාසමය ප්‍රතිඵල ස්කෑන් කරයි.</p>
+        <p>💡 එය සෙවීම් ආකෘති හඳුනා ගනී, එම ආකෘති නිතරම ලාභ ලබා දේ..</p>
+        <p>📲 ඔබට සජීවී කාලීන අනාවැකි ඔබේ උපාංගයට සෘජුවම ලැබේ.</p>
+      </div>
+    </section>
+
+    <section class="bg-black py-12 px-6 text-center">
+      <h3 class="text-xl font-bold text-green-400 mb-4">[ Console Log ]</h3>
+      <div class="console-box max-w-3xl mx-auto text-left" id="console">
+        <p>[INFO] Predictor service active ✅</p>
+      </div>
+    </section>
+
+    <footer class="text-center text-gray-500 text-sm py-6">
+      © 2025 AI Predictor. Not affiliated with 1xBet. Use responsibly.
+    </footer>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById("loading").classList.add("hidden-screen");
+      document.getElementById("mainContent").classList.remove("hidden-screen");
+    }, 3000);
+
+    document.getElementById("connectButton").addEventListener("click", () => {
+      const userId = document.getElementById("userId").value;
+      if (userId) {
+        document.getElementById("accountIdDisplay").innerText = userId;
+        document.getElementById("connectionSuccess").classList.remove("hidden");
+        document.getElementById("errorBox").classList.add("hidden");
+      }
+    });
+
+    document.getElementById("getSignalButton").addEventListener("click", () => {
+      document.getElementById("errorBox").classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>
